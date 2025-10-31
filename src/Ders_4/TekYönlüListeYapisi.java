@@ -36,6 +36,9 @@ public class TekYönlüListeYapisi {
             System.out.println("Sona eleman eklendi");
         }
     }
+    void arayEkle(int x){
+
+    }
     void yazdir(){
         if (head == null){
             System.out.print("Liste boş. ");
