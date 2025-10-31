@@ -36,7 +36,7 @@ public class TekYönlüListeYapisi {
             System.out.println("Sona eleman eklendi");
         }
     }
-    void arayEkle(int x){
+    void arayEkle(){
 
     }
     void yazdir(){
