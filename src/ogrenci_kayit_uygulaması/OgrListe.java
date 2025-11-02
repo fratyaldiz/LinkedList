@@ -78,7 +78,58 @@ public class OgrListe {
         }
     }
 
-    void print()
+    void print(){
+        temp = head;
+        while(temp != null){    //Son düğüme kadar git.
+            System.out.println(temp.numara + " numaralı öğrenci bilgileri ");
+            System.out.println("****************************");
+            System.out.println("Ad: " + temp.ad);
+            System.out.println("Soyad: " + temp.soyad);
+            System.out.println("Vize: " + temp.vize);
+            System.out.println("Final: " + temp.fin);
+            System.out.println("Ortalama: " + temp.ortalama);
+            System.out.println("Durum: " + temp.durum);
+            System.out.println("****************************");
+
+            temp = temp.next;
+
+        }
+    }
+
+    void enBaariliOrenci(){
+        if (head == null){
+            System.out.println("Liste boş");
+        }
+        else{
+            temp = head;
+            double buyuk = temp.ortalama;
+
+            while(temp != null){
+                if(buyuk < temp.ortalama){
+                    buyuk = temp.ortalama;
+
+                    numara =  temp.numara;
+                    ad = temp.ad;
+                    soyad = temp.soyad;
+                    vize = temp.vize;
+                    fin = temp.fin;
+                    ortalama = temp.ortalama;
+                    durum = temp.durum;
+                }
+
+                temp = temp.next;
+            }
+            System.out.println("En başarılı öğrenci bilgileri ");
+            System.out.println("****************************");
+            System.out.println("Ad: " + ad);
+            System.out.println("Soyad: " + soyad);
+            System.out.println("Vize: " + vize);
+            System.out.println("Final: " + fin);
+            System.out.println("Ortalama: " + ortalama);
+            System.out.println("Durum: " + durum);
+            System.out.println("****************************");
+        }
+    }
 
 
 
