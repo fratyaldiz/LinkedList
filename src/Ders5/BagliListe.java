@@ -112,4 +112,62 @@ public class BagliListe {
             }
         }
     }
+    void aradanSil(int indis) {
+        if(head != null){
+
+            // Eğer listede tek bir düğüm varsa (head.next == null)
+            // ve silinmek istenen indis ilk düğümü işaret ediyorsa (indis <= 0)
+            if (head.next == null && indis <= 0){
+                head = null; // Başı null yap
+                tail = null; // Sonu null yap (Liste artık boş)
+            }
+
+            else if(head.next != null && indis <= 0){
+                bastanSil();
+            }
+
+            // 4. Liste uzunluğunu hesaplama ve sondan silme durumu:
+            else{
+                int n = 0; // Düğüm sayısını tutacak değişken
+                Node temp = head; // Geçici gezgin değişkeni baştan başlar
+
+                // Liste sonuna kadar giderek düğüm sayısını (n) bul.
+                while (temp != null){
+                    n++;
+                    temp = temp.next;
+                }
+
+                // temp'i tekrar kullanacağımız için, baştan ilerlemeden önce listenin uzunluğu (n) biliniyor.
+
+                if(indis >= (n - 1)){
+                    sondanSil();
+                }
+
+                // 5. Aradan Silme Durumu:
+                else{
+                    temp = head; // temp'i tekrar listenin başına getir
+                    int i = 0;
+
+                    // Silinecek olan düğüme (indis'teki düğüme) kadar ilerle.
+                    while(i < indis){
+                        i++;
+                        temp = temp.next;
+                    }
+
+                    // Silme İşlemi (temp, silinecek düğümü işaret ediyor):
+                    // Bu işlemde temp'i listeden çıkarıp, onun komşu düğümlerini birbirine bağlıyoruz.
+
+                    // Silinecek düğümün (temp) next'inin prev'ini, temp'in prev'ine bağla.
+                    // (Sağdaki düğümün geri oku, soldaki düğüme bağlandı)
+                    temp.next.prev = temp.prev;
+
+                    // Silinecek düğümün (temp) prev'inin next'ini, temp'in next'ine bağla.
+                    // (Soldaki düğümün ileri oku, sağdaki düğüme bağlandı)
+                    temp.prev.next = temp.next;
+
+                    // temp artık referans edilmiyor (Java Garbage Collector devreye girecektir).
+                }
+            }
+        }
+    }
 }

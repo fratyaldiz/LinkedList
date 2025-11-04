@@ -15,6 +15,7 @@ public class Uygulama {
             System.out.println("3- Araya ekle");
             System.out.println("4- Baştan sil");
             System.out.println("5- Sondan sil");
+            System.out.println("6- Aradan sil");
             System.out.println("8- Listeyi Sondan Yazdır");
             System.out.println("0- Çıkış");
             System.out.print("Seçiminiz: ");
@@ -51,6 +52,11 @@ public class Uygulama {
             }
             else if(secim == 5){
                 bl.sondanSil();
+            }
+            else if(secim == 6){
+                System.out.println("İndis: ");
+                indis = scanner.nextInt();
+                bl.aradanSil(indis);
             }
             else{
                 System.out.println("Geçersiz giriş.");
