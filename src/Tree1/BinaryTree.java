@@ -26,7 +26,7 @@ public class BinaryTree {
         return root;
     }
 
-    void preOrder(Node root) {  //soldan sağa doğru, önce kök
+    void preOrder(Node root) {  // KÖK -> SOL -> SAĞ önce kök
         if (root != null) {
             System.out.print(root.data + " ");
             preOrder(root.left);
@@ -34,7 +34,7 @@ public class BinaryTree {
         }
     }
 
-    void inOrder(Node root) {       //en soldan başlayarak geliyor, kök ortada
+    void inOrder(Node root) {       //  SOL -> KÖK -> SAĞ
         if (root != null) {
             inOrder(root.left);
             System.out.print(root.data + " ");
@@ -42,7 +42,7 @@ public class BinaryTree {
         }
     }
 
-    void postOrder(Node root) {     //en alt satır soldan sağa yazdırılır sonra bir üst satıra geçilir, kök sonda.
+    void postOrder(Node root) {     //  SOL -> SAĞ -> KÖK
         if (root != null) {
             postOrder(root.left);
             postOrder(root.right);
