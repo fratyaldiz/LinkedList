@@ -30,6 +30,9 @@ public class Main {
         System.out.println();
         System.out.println("Size: " + bt.size(bt.root));
 
+        bt.remove(bt.root, 10);
+        bt.preOrder(bt.root);
+
 
         /*System.out.println();
         System.out.println("Kökün datası: " + bt.root.data);

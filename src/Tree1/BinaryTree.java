@@ -63,5 +63,45 @@ public class BinaryTree {
         }
     }
 
+    int max(Node node) {
+        int maxValue = node.data;
 
+        while (node.right != null) {
+            maxValue = node.right.data;
+            node = node.right;
+        }
+        return maxValue;
+    }
+
+
+    public Node remove(Node root, int data) {
+        if (root == null) {
+            return null;
+        }
+        if (data > root.data) {
+            root.right = remove(root.right, data);
+            return root;
+        }
+        else if (data < root.data) {
+            root.left = remove(root.left, data);
+            return root;
+        }
+        else {
+            if (root.left == null && root.right == null ) {
+                return null;
+            }
+            else if (root.left == null) {
+                return root.right;
+            }
+            else if (root.right == null) {
+                return root.left;
+            }
+            else {
+                int max = max(root.left);
+                root.data = max;
+                root.left = remove(root.left, max);
+                return root;
+            }
+        }
+    }
 }
